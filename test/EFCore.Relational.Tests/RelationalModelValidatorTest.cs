@@ -846,7 +846,7 @@ namespace Microsoft.EntityFrameworkCore
 
             var methodInfo
                 = typeof(DbFunctionMetadataTests.TestMethods)
-                    .GetRuntimeMethod(nameof(DbFunctionMetadataTests.TestMethods.MethodD), new Type[] { });
+                    .GetRuntimeMethod(nameof(DbFunctionMetadataTests.TestMethods.MethodD), Array.Empty<Type>());
 
             modelBuilder.HasDbFunction(methodInfo);
 

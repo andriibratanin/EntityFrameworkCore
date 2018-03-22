@@ -931,7 +931,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Expressions
             return ordering;
         }
 
-        private bool OrderingExpressionComparison(Ordering ordering, Expression expressionToMatch)
+        private static bool OrderingExpressionComparison(Ordering ordering, Expression expressionToMatch)
         {
             var unwrappedOrderingExpression = UnwrapNullableExpression(ordering.Expression.RemoveConvert()).RemoveConvert();
             var unwrappedExpressionToMatch = UnwrapNullableExpression(expressionToMatch.RemoveConvert()).RemoveConvert();
@@ -939,7 +939,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Expressions
             return ExpressionEqualityComparer.Instance.Equals(unwrappedOrderingExpression, unwrappedExpressionToMatch);
         }
 
-        private Expression UnwrapNullableExpression(Expression expression)
+        private static Expression UnwrapNullableExpression(Expression expression)
         {
             if (expression is NullableExpression nullableExpression)
             {

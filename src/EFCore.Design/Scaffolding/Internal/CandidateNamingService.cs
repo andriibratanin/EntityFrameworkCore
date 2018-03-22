@@ -81,7 +81,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             return foreignKey.DeclaringEntityType.ShortName();
         }
 
-        private string GenerateCandidateIdentifier(string originalIdentifier)
+        private static string GenerateCandidateIdentifier(string originalIdentifier)
         {
             Check.NotEmpty(originalIdentifier, nameof(originalIdentifier));
 
@@ -114,7 +114,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             return candidateStringBuilder.ToString();
         }
 
-        private string FindCandidateNavigationName(IEnumerable<IProperty> properties)
+        private static string FindCandidateNavigationName(IEnumerable<IProperty> properties)
         {
             if (!properties.Any())
             {
@@ -135,7 +135,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             return StripId(candidateName);
         }
 
-        private string FindCommonPrefix(string firstName, IEnumerable<string> propertyNames)
+        private static string FindCommonPrefix(string firstName, IEnumerable<string> propertyNames)
         {
             var prefixLength = 0;
             foreach (var c in firstName)
@@ -155,7 +155,7 @@ namespace Microsoft.EntityFrameworkCore.Scaffolding.Internal
             return firstName.Substring(0, prefixLength);
         }
 
-        private string StripId(string commonPrefix)
+        private static string StripId(string commonPrefix)
         {
             if (commonPrefix.Length > 2
                 && commonPrefix.EndsWith("id", StringComparison.OrdinalIgnoreCase))

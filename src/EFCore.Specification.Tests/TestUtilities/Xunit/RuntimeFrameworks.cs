@@ -5,7 +5,6 @@ using System;
 
 namespace Microsoft.EntityFrameworkCore.TestUtilities.Xunit
 {
-    [Flags]
     public enum RuntimeFrameworks
     {
         None = 0,
